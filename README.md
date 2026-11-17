@@ -137,7 +137,6 @@ scripts/
   fuel_depot.gd          Tanque de combustible
   bullet.gd              Misil del jugador
 docs/
-  guia_diseno_original.md   Guía de diseño en que se basa el juego
   media/                    Capturas, GIF y video de demostración
 ```
 
