@@ -1,0 +1,45 @@
+; Archivo de configuración del motor (Godot 4).
+
+config_version=5
+
+[application]
+
+config/name="River Raid Moderno"
+config/description="Shooter vertical estilo River Raid para Android."
+config/version="1.0.0"
+run/main_scene="res://scenes/Menu.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+config/icon="res://icon.svg"
+config/quit_on_go_back=false
+
+[autoload]
+
+GameState="*res://scripts/game_state.gd"
+Sfx="*res://scripts/sfx.gd"
+
+[display]
+
+window/size/viewport_width=540
+window/size/viewport_height=960
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_physics/layer_1="Jugador"
+2d_physics/layer_2="ParedesRio"
+2d_physics/layer_3="Enemigos"
+2d_physics/layer_4="Combustible"
+2d_physics/layer_5="Proyectiles"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.12, 0.33, 0.78, 1)

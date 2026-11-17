@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+env:
+  GODOT_VERSION: 4.7.2-stable
+
+jobs:
+  test:
+    name: Importar y jugar en modo automático
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Descargar Godot ${{ env.GODOT_VERSION }}
+        run: |
+          curl -sSL -o godot.zip "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}/Godot_v${GODOT_VERSION}_linux.x86_64.zip"
+          unzip -q godot.zip
+          mv "Godot_v${GODOT_VERSION}_linux.x86_64" godot
+          ./godot --version
+
+      - name: Importar el proyecto
+        run: ./godot --headless --path . --import 2>&1 | tee import.log
+
+      - name: Partida automática (modo A y modo B)
+        run: |
+          for mode in A B; do
+            ./godot --headless --path . -- --autoplay --autoplay-seconds=25 --mode=$mode --seed=12345 2>&1 | tee run_$mode.log
+            grep -q "RESUMEN" run_$mode.log || { echo "La partida $mode no terminó"; exit 1; }
+          done
+
+      - name: Revisar errores de script
+        run: |
+          if grep -E "SCRIPT ERROR|Parse Error|Failed to load script" import.log run_*.log; then
+            echo "Se encontraron errores"; exit 1
+          fi
