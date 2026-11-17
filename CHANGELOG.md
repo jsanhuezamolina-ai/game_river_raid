@@ -1,5 +1,10 @@
 # Changelog
 
+## [Sin publicar]
+
+### Probado
+- Teléfono físico Redmi 15C con Android 16 (API 36).
+
 ## [1.0.0] - 2026-11-16
 
 ### Añadido

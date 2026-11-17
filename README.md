@@ -42,7 +42,7 @@ combustible.
 |---|---|---|
 | Emulador Pixel 6 (x86_64) | 14 (API 34) | ✅ Se jugó completo: menú, partida, recarga, puentes y fin del juego |
 | Emulador Android TV (x86) | 16 (API 36) | ⚠️ Abre y funciona, pero no está pensado para TV (sin pantalla táctil y en horizontal) |
-| Teléfono físico | — | Pendiente de prueba |
+| **Redmi 15C** (arm64, Mali-G52) | **16 (API 36)** | ✅ Instalado y jugado: menú legible en 720×1600, sin errores en los registros |
 
 ## Cómo se juega
 
@@ -72,6 +72,10 @@ combustible.
 ## Instalación
 
 ### En un teléfono
+> **Xiaomi / Redmi / POCO:** si `adb install` falla con `INSTALL_FAILED_USER_RESTRICTED`, activa
+> **Opciones de desarrollador → Instalar vía USB**, o copia el APK a Descargas e instálalo desde el
+> Administrador de archivos.
+
 1. Descarga `river_raid_debug.apk` desde [Releases](https://github.com/jsanhuezamolina-ai/game_river_raid/releases/latest).
 2. Ábrelo en el teléfono y permite **instalar apps de origen desconocido** cuando lo pida.
 
